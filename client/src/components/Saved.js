@@ -3,7 +3,13 @@ import React, { Component } from "react";
 class Saved extends Component {
   render() {
     return (
-      <div>
+      <div className="card">
+        <div className="card-header">
+          <span className="ion-archive"></span> Saved Articles
+        </div>
+        <div className="card-body">
+          <Saved />
+        </div>
       </div>
     );
   }

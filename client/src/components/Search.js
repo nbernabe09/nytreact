@@ -1,27 +1,29 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import API from "../utils/API";
+import SearchForm from "./SearchForm";
 
 class Search extends Component {
+  state = {
+    term: ""
+  }
+
+  handleInputChange = (event) => {
+    this.setState({
+      term: event.target.value
+    });
+  }
+
   render() {
     return (
-      <form>
-        <div className="form-group">
-          <label for="term">Search Term:</label>
-          <input type="text" className="form-control" id="term" aria-describedby="emailHelp" placeholder="Search..." />
+      <div className="card">
+        <div className="card-header">
+          <span className="ion-compose"></span> Search Parameters
         </div>
-        <div className="form-group">
-          <label for="range">Number of Records to Retrieve:</label>
-          <select id="range" className="form-control">
-            <option>1</option>
-            <option selected>5</option>
-            <option>10</option>
-          </select>
+        <div className="card-body">
+          <SearchForm />
         </div>
-        <button type="submit" className="btn btn-primary">
-          <span className="ion-search"></span> Submit
-        </button>
-      </form>
+      </div>
     );
   }
 }

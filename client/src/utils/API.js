@@ -1,9 +1,7 @@
 import axios from "axios";
 
-// Export an object containing methods we'll use for accessing the Dog.Ceo API
-
 export default {
-  getArticle: function() {
-    return axios.get("https://dog.ceo/api/breeds/image/random");
+  getArticle: function(term) {
+    return axios.get("https://api.nytimes.com/svc/search/v2/articlesearch.json?api-key=f3539df570a247a7bcc391d4572768c5&q=" + term);
   }
 };
