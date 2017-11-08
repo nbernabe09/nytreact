@@ -45,7 +45,7 @@ class Search extends Component {
         <div className="card">
           <div className="card-header">
             <span className="ion-document-text"></span> Top Articles
-            <button className="btn btn-sm btn-danger clr-res">
+            <button className="btn btn-sm btn-danger right">
               <span className="ion-trash-a"></span> Clear Results
             </button>
           </div>

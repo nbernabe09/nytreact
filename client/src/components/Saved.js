@@ -2,7 +2,11 @@ import React, { Component } from "react";
 
 class Saved extends Component {
   // componentDidMount() {
+    
+  // }
 
+  // componentDidUpdate() {
+    
   // }
 
   render() {
@@ -12,7 +16,7 @@ class Saved extends Component {
           <span className="ion-archive"></span> Saved Articles
         </div>
         <div className="card-body">
-          
+          <p>This area will display saved articles from MongoDB</p>
         </div>
       </div>
     );
