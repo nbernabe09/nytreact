@@ -1,6 +1,10 @@
 import React, { Component } from "react";
 
 class Saved extends Component {
+  // componentDidMount() {
+
+  // }
+
   render() {
     return (
       <div className="card">
@@ -8,7 +12,7 @@ class Saved extends Component {
           <span className="ion-archive"></span> Saved Articles
         </div>
         <div className="card-body">
-          <Saved />
+          
         </div>
       </div>
     );

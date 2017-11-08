@@ -1,21 +1,25 @@
-import React, { Component } from "react";
-import { Link } from "react-router-dom";
-import API from "../utils/API";
+import React from "react";
 
-class Search extends Component {
-  render() {
-    return (
-      <form>
-        <div className="form-group">
-          <label for="term">Search Term:</label>
-          <input type="text" className="form-control" id="term" aria-describedby="emailHelp" placeholder="Search..." />
-        </div>
-        <button type="submit" className="btn btn-primary">
-          <span className="ion-search"></span> Submit
-        </button>
-      </form>
-    );
-  }
-}
+const SearchForm = props => 
+  <form>
+    <div className="form-group">
+      <label htmlFor="term">Search Term:</label>
+      <input 
+        value={props.term}
+        onChange={props.handleInputChange}
+        type="text"
+        className="form-control"
+        id="term"
+        placeholder="Search..."
+      />
+    </div>
+    <button
+      type="submit"
+      onClick={props.handleFormSubmit}
+      className="btn btn-primary"
+    >
+      <span className="ion-search"></span> Submit
+    </button>
+  </form>;
 
-export default Search;
+export default SearchForm;
