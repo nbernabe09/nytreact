@@ -14,18 +14,33 @@ class Search extends Component {
     this.setState({
       term: event.target.value
     });
-    console.log(this.state);
   }
 
   handleFormSubmit = (event) => {
     event.preventDefault();
-    API.getArticle(this.state.term)
+    API.getSearch(this.state.term)
        .then(res => {
         this.setState({
           results: res.data.response.docs
         });
         console.log(this.state.results);
        });
+  }
+
+  handleClear = (event) => {
+    this.setState({
+      results: []
+    });
+  }
+
+  handleSave = (article) => {
+    API.saveArticle({
+      headline: article.headline.main,
+      articleId: article._id,
+      author: article.byline.original,
+      pubDate: article.pub_date,
+      url: article.web_url
+    });
   }
 
   render() {
@@ -45,12 +60,13 @@ class Search extends Component {
         <div className="card">
           <div className="card-header">
             <span className="ion-document-text"></span> Top Articles
-            <button className="btn btn-sm btn-danger right">
+            <button onClick={this.handleClear} className="btn btn-sm btn-danger right">
               <span className="ion-trash-a"></span> Clear Results
             </button>
           </div>
           <Results
             results={this.state.results}
+            handleSave={this.handleSave}
           />
         </div>
       </div>

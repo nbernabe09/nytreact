@@ -1,14 +1,36 @@
-import React, { Component } from "react";
+import React from "react";
 
-class Results extends Component {
-  render() {
-    return (
-      <div className="card-body">
-        <p>This area will display updated state.results</p>
-        <button className="btn btn-info right">Save</button>
-      </div>
-    );
-  }
+const Results = (props) => {
+  return (
+    <div>
+      {
+        props.results.map(article => {
+          return (
+            <div key={article._id} className="card-body">
+              <h4 className="card-title">
+                {article.headline.main}
+              </h4>
+              <h6 className="card-subtitle mb-2 text-muted">
+                {article.byline.original}
+              </h6>
+              <p className="card-text">
+                Published on: {article.pub_date}
+              </p>
+              <a href={article.web_url} target="_blank" className="btn btn-info">
+                Go to article
+              </a>
+              <button
+                className="btn btn-primary right"
+                onClick={() => props.handleSave(article)}
+              >
+                Save
+              </button>
+            </div>
+          )
+        }) || "no results"
+      }
+    </div>
+  );
 }
 
 export default Results;
